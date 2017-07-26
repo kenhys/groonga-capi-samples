@@ -1,0 +1,7 @@
+testdb*
+*.o
+*.log
+m4/*
+autom4te.cache
+configure
+.deps
