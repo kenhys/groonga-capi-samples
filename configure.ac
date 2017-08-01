@@ -47,6 +47,7 @@ AC_SUBST(GROONGA_HTTPD)
 
 AC_CONFIG_FILES([
   Makefile
+  grn_expr_exec/Makefile
   grn_table_add/Makefile
 ])
 
