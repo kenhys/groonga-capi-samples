@@ -24,8 +24,4 @@ int main(void)
   GRN_TEXT_PUTS(&ctx, table, "bookmarks");
 
   grn_expr_exec(&ctx, command, 0);
-
-  grn_ctx_info info;
-  grn_ctx_info_get(&ctx, &info);
-  printf("%.*s\n", (int)GRN_TEXT_LEN(info.outbuf), GRN_TEXT_VALUE(info.outbuf));
 }
