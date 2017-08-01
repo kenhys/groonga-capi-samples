@@ -1,1 +1,1 @@
-SUBDIRS = grn_table_add
+SUBDIRS = grn_table_add grn_expr_exec
