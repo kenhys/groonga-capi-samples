@@ -1,0 +1,3 @@
+table_create bookmarks TABLE_NO_KEY
+column_create bookmarks uri COLUMN_SCALAR ShortText
+column_create bookmarks comment COLUMN_SCALAR ShortText
