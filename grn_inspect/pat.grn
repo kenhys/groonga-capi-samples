@@ -1,0 +1,12 @@
+table_create Users TABLE_PAT_KEY ShortText
+
+load --table Users
+[
+{"_key": "a"},
+{"_key": "b"},
+{"_key": "c"},
+{"_key": "d"},
+{"_key": "e"},
+{"_key": "f"},
+{"_key": "g"}
+]

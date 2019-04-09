@@ -49,6 +49,7 @@ AC_CONFIG_FILES([
   Makefile
   grn_expr_exec/Makefile
   grn_table_add/Makefile
+  grn_inspect/Makefile
 ])
 
 AC_OUTPUT
