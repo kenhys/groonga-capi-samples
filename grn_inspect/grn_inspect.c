@@ -33,6 +33,14 @@ main (int argc, char **argv)
   grn_inspect_name(&context, &buffer, obj);
   printf("indented inspect: %.*s\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
 
+  GRN_TEXT_INIT(&buffer, 0);
+  grn_inspect_encoding(&context, &buffer, GRN_ENC_UTF8);
+  printf("encoding: %.*s\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
+
+  GRN_TEXT_INIT(&buffer, 0);
+  grn_inspect_type(&context, &buffer, table->header.type);
+  printf("type: %.*s\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
+
   GRN_OBJ_FIN(&context, &buffer);
   
   grn_db_unmap(&context, db);
