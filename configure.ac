@@ -50,6 +50,7 @@ AC_CONFIG_FILES([
   grn_expr_exec/Makefile
   grn_table_add/Makefile
   grn_inspect/Makefile
+  grn_str/Makefile
 ])
 
 AC_OUTPUT
