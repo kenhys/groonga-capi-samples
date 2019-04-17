@@ -1,0 +1,71 @@
+table_remove Int8PatTable
+table_create Int8PatTable TABLE_PAT_KEY Int8
+
+load --table Int8PatTable
+[
+{"_key": 100},
+]
+
+table_remove Int16PatTable
+table_create Int16PatTable TABLE_PAT_KEY Int16
+
+load --table Int16PatTable
+[
+{"_key": 100},
+]
+
+table_remove Int32PatTable
+table_create Int32PatTable TABLE_PAT_KEY Int32
+
+load --table Int32PatTable
+[
+{"_key": 100},
+]
+
+table_remove Int64PatTable
+table_create Int64PatTable TABLE_PAT_KEY Int64
+
+load --table Int64PatTable
+[
+{"_key": 100},
+]
+
+table_remove UInt8PatTable
+table_create UInt8PatTable TABLE_PAT_KEY UInt8
+
+load --table UInt8PatTable
+[
+{"_key": 100},
+]
+
+table_remove UInt16PatTable
+table_create UInt16PatTable TABLE_PAT_KEY UInt16
+
+load --table UInt16PatTable
+[
+{"_key": 100},
+]
+
+table_remove UInt32PatTable
+table_create UInt32PatTable TABLE_PAT_KEY UInt32
+
+load --table UInt32PatTable
+[
+{"_key": 100},
+]
+
+table_remove UInt64PatTable
+table_create UInt64PatTable TABLE_PAT_KEY UInt64
+
+load --table UInt64PatTable
+[
+{"_key": 100},
+]
+
+table_remove ShortTextPatTable
+table_create ShortTextPatTable TABLE_PAT_KEY ShortText
+
+load --table ShortTextPatTable
+[
+{"_key": "a"},
+]
