@@ -69,3 +69,27 @@ load --table ShortTextPatTable
 [
 {"_key": "a"},
 ]
+
+table_remove Int8HashTable
+table_create Int8HashTable TABLE_HASH_KEY Int8
+
+load --table Int8HashTable
+[
+{"_key": 100},
+]
+
+table_remove ShortTextHashTable
+table_create ShortTextHashTable TABLE_HASH_KEY ShortText
+
+load --table ShortTextHashTable
+[
+{"_key": "a"},
+]
+
+table_remove NoKeyTable
+table_create NoKeyTable TABLE_NO_KEY
+
+load --table NoKeyTable
+[
+{"_id": 100},
+]
