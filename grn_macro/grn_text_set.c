@@ -39,6 +39,16 @@ main(void)
 
     printf("grn_text_printf: <%.*s>\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
 
+    GRN_TEXT_INIT(&buffer, 0);
+    GRN_OBJ_INIT(&key_buffer, GRN_BULK, GRN_OBJ_DO_SHALLOW_COPY, GRN_DB_TEXT);
+    void *null_key = NULL;
+    key_size = 0;
+    GRN_TEXT_SET(&context, &key_buffer, null_key, key_size);
+    grn_inspect(&context, &buffer, &key_buffer);
+    GRN_OBJ_FIN(&context, &key_buffer);
+
+    printf("null key: <%.*s>\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
+
     GRN_OBJ_FIN(&context, &buffer);
     i++;
   }
