@@ -15,10 +15,25 @@ main (int argc, char **argv)
 
   grn_obj *table = grn_ctx_get(&context, "Users", strlen("Users"));
 
+  const char *table_names[] = {
+    "Int8PatTable",
+    "ShortTextPatTable",
+    "Int8HashTable",
+    "ShortTextHashTable",
+    "NoKeyTable",
+    NULL
+  };
+
+  int i = 0;
   grn_obj buffer;
-  GRN_TEXT_INIT(&buffer, 0);
-  grn_inspect(&context, &buffer, table);
-  printf("inspect: <%.*s>\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
+  while (table_names[i]) {
+    GRN_TEXT_INIT(&buffer, 0);
+
+    table = grn_ctx_get(&context, table_names[i], strlen(table_names[i]));
+    grn_inspect(&context, &buffer, table);
+    printf("INSPECT <%s>: <%.*s>\n", table_names[i], (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
+    i++;
+  }
 
   GRN_TEXT_INIT(&buffer, 0);
   grn_inspect_limited(&context, &buffer, table);
