@@ -13,7 +13,7 @@ main (int argc, char **argv)
   grn_ctx_init(&context, 0);
   db = grn_db_open(&context, "./testdb/db");
 
-  grn_obj *table;
+  grn_obj *obj;
 
   const char *table_names[] = {
     "Int8PatTable",
@@ -29,8 +29,8 @@ main (int argc, char **argv)
   while (table_names[i]) {
     GRN_TEXT_INIT(&buffer, 0);
 
-    table = grn_ctx_get(&context, table_names[i], strlen(table_names[i]));
-    grn_p(&context, table);
+    obj = grn_ctx_get(&context, table_names[i], strlen(table_names[i]));
+    grn_p(&context, obj);
     i++;
   }
 
