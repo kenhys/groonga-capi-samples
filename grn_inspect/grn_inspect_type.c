@@ -4,7 +4,7 @@
 #include <groonga.h>
 
 int
-main (int argc, char **argv)
+main(void)
 {
   grn_ctx context;
   grn_obj *db;
