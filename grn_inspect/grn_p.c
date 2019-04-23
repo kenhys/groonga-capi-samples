@@ -15,6 +15,12 @@ main (int argc, char **argv)
 
   grn_obj *obj;
 
+  if (argc == 2) {
+    obj = grn_ctx_get(&context, argv[1], strlen(argv[1]));
+    grn_p(&context, obj);
+    goto exit;
+  }
+
   const char *table_names[] = {
     "Int8PatTable",
     "ShortTextPatTable",
@@ -36,6 +42,7 @@ main (int argc, char **argv)
 
   GRN_OBJ_FIN(&context, &buffer);
   
+exit:
   grn_db_unmap(&context, db);
   grn_ctx_fin(&context);
   grn_fin();
