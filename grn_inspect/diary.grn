@@ -1,0 +1,26 @@
+table_remove Bigram
+table_create Bigram TABLE_PAT_KEY ShortText \
+  --default_tokenizer TokenBigramSplitSymbolAlpha \
+  --normalizer NormalizerAuto
+
+table_remove Diaries
+table_create Diaries TABLE_HASH_KEY ShortText
+column_create Diaries title COLUMN_SCALAR ShortText
+column_create Diaries content COLUMN_SCALAR Text
+
+column_create Bigram titles COLUMN_INDEX|WITH_POSITION  Diaries title
+column_create Bigram contents COLUMN_INDEX|WITH_POSITION  Diaries content
+
+load --table Diaries
+[
+  {
+    "_key": "2013-02-06",
+    "title": "groonga",
+    "content": "I found it that is a fast fulltext search engine!"
+  },
+  {
+    "_key": "2013-02-07",
+    "title": "mroonga",
+    "content": "I found mroonga that is a MySQL storage engine to use groonga!"
+  },
+]
