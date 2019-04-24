@@ -17,6 +17,10 @@ main(void)
   grn_inspect_query_log_flags(&context, &buffer, current_flags);
   printf("FLAGS: <%.*s>\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
 
+  GRN_TEXT_INIT(&buffer, 0);
+  grn_inspect_query_log_flags(&context, &buffer, 64);
+  printf("FLAGS: <%.*s>\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
+
   GRN_OBJ_FIN(&context, &buffer);
   
   grn_ctx_fin(&context);
