@@ -8,6 +8,7 @@ bin_PROGRAMS = \
 	grn_inspect_name \
 	grn_inspect_type \
 	grn_inspect_query_log_flags \
+	grn_inspect_indented \
 	grn_p \
 	grn_p_geo_point \
 	grn_p_ii_values
@@ -18,6 +19,7 @@ grn_inspect_encoding_SOURCES = grn_inspect_encoding.c
 grn_inspect_name_SOURCES = grn_inspect_name.c
 grn_inspect_type_SOURCES = grn_inspect_type.c
 grn_inspect_query_log_flags_SOURCES = grn_inspect_query_log_flags.c
+grn_inspect_indented_SOURCES = grn_inspect_indented.c
 grn_p_SOURCES = grn_p.c
 grn_p_geo_point_SOURCES = grn_p_geo_point.c
 grn_p_ii_values_SOURCES = grn_p_ii_values.c
