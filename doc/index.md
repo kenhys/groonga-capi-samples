@@ -34,3 +34,36 @@
 
 バッファーをマージしたり分割するときには中身が全部からになるチャンクというものある。
 そのときはチャンクまるごと無視してマージする。
+
+## テーブルの参照関係について
+
+
+カラムが参照型のカラムかどうかはgrn_obj_is_reference_column(ctx, obj)で判定できる。
+参照先のテーブルを取得するには、rangeを取得すればよい。
+
+```
+const grn_id range_id = grn_obj_get_range(ctx, obj);
+grn_obj *range = grn_ctx_at(ctx, range_id);
+```
+
+カラムがデータカラムかどうかはgrn_obj_is_data_column(ctx, obj)で判定できる。
+データカラムを参照しているインデックスカラムを取得するには、hookを探査して
+オブジェクトのtypeがインデックスカラムであるかどうかをみるとよい。
+
+```
+for (hooks = DB_OBJ(obj)->hooks[GRN_HOOK_SET]; hooks; hooks = hooks->next) {
+  grn_obj_default_set_value_hook_data *data = (void *)GRN_NEXT_ADDR(hooks);
+  grn_obj *target = grn_ctx_at(ctx, data->target);
+  if (target->header.type != GRN_COLUMN_INDEX) {
+    continue;
+  }
+  /* target must be index column */
+}
+```
+
+インデックスカラムからテーブル（語彙表）をたどるには、domainを参照するとよい。
+
+```
+grn_obj *lexicon = grn_ctx_at(ctx, target->header.domain);
+```
+
