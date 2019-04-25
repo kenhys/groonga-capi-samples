@@ -34,6 +34,7 @@ main(void)
     int key_size = 0;
     key_size = grn_table_get_key(&context, table, 1, key, 16);
     GRN_TEXT_SET(&context, &key_buffer, key, key_size);
+    printf("key buffer: <%.*s>\n", (int)GRN_TEXT_LEN(&key_buffer), GRN_TEXT_VALUE(&key_buffer));
     grn_inspect(&context, &buffer, &key_buffer);
     GRN_OBJ_FIN(&context, &key_buffer);
 
