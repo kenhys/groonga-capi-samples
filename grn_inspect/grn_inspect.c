@@ -56,6 +56,11 @@ main(void)
   grn_inspect_type(&context, &buffer, table->header.type);
   printf("type: %.*s\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
 
+  GRN_TEXT_INIT(&buffer, 0);
+  grn_text_printf(&context, &buffer, "init");
+  grn_inspect(&context, &buffer, table);
+  printf("append?: %.*s\n", (int)GRN_TEXT_LEN(&buffer), GRN_TEXT_VALUE(&buffer));
+
   GRN_OBJ_FIN(&context, &buffer);
   
   grn_db_unmap(&context, db);
