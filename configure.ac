@@ -52,6 +52,7 @@ AC_CONFIG_FILES([
   grn_inspect/Makefile
   grn_str/Makefile
   grn_macro/Makefile
+  grn_obj/Makefile
 ])
 
 AC_OUTPUT
