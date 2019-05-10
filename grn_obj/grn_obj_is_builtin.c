@@ -31,12 +31,9 @@ main(int argc, char *argv[])
 
   int i = 0;
   while (obj_names[i]) {
-    grn_obj buffer;
-    GRN_TEXT_INIT(&buffer, 0);
     obj = grn_ctx_get(&context, obj_names[i], strlen(obj_names[i]));
     printf("<%s> builtin?: <%s>\n",
            obj_names[i], grn_obj_is_builtin(&context, obj) ? "true" : "false");
-    GRN_OBJ_FIN(&context, &buffer);
     i++;
   }
 exit:  
