@@ -4,7 +4,7 @@
 #include <groonga.h>
 
 int
-main(void)
+main(int argc, char *argv[])
 {
   grn_ctx context;
   grn_obj *db;
@@ -14,6 +14,15 @@ main(void)
   grn_ctx_init(&context, 0);
   db = grn_db_open(&context, "./testdb/db");
 
+  if (argc == 2) {
+    obj = grn_ctx_get(&context, argv[1], strlen(argv[1]));
+    if (obj) {
+      printf("<%s> column?: <%s>\n",
+             argv[1], grn_obj_is_column(&context, obj) ? "true" : "false");
+    }
+    goto exit;
+  }
+
   const char *obj_names[] = {
     "Diaries.title",
     "Diaries",
@@ -22,15 +31,12 @@ main(void)
 
   int i = 0;
   while (obj_names[i]) {
-    grn_obj buffer;
-    GRN_TEXT_INIT(&buffer, 0);
     obj = grn_ctx_get(&context, obj_names[i], strlen(obj_names[i]));
     printf("<%s> column?: <%s>\n",
            obj_names[i], grn_obj_is_column(&context, obj) ? "true" : "false");
-    GRN_OBJ_FIN(&context, &buffer);
     i++;
   }
-  
+exit:  
   grn_db_unmap(&context, db);
   grn_ctx_fin(&context);
   grn_fin();
