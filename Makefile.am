@@ -4,5 +4,6 @@ SUBDIRS = \
 	grn_inspect \
 	grn_str \
 	grn_macro \
-	grn_obj
+	grn_obj	\
+	grn_db
 
