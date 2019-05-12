@@ -21,6 +21,7 @@ main(int argc, char *argv[])
 
   char db_path[PATH_MAX];
   if (argc != 2) {
+    fprintf(stderr, "Usage: %s DB_PATH\n", argv[0]);
     exit(1);
   } else {
     strcpy(db_path, argv[1]);
