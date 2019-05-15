@@ -35,6 +35,10 @@ bin_PROGRAMS = \
 	grn_obj_is_weight_vector_column	\
 	grn_obj_is_window_function_proc
 
+init:
+	mkdir -p testdb
+	groonga -n testdb/lexicon < lexicon.grn
+
 grn_obj_cast_SOURCES = grn_obj_cast.c
 grn_obj_clear_option_values_SOURCES = grn_obj_clear_option_values.c
 grn_obj_get_disk_usage_SOURCES = grn_obj_get_disk_usage.c
