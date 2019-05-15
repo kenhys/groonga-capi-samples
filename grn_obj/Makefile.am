@@ -36,8 +36,11 @@ bin_PROGRAMS = \
 	grn_obj_is_window_function_proc
 
 init:
+	rm -fr testdb
 	mkdir -p testdb
 	groonga -n testdb/lexicon < lexicon.grn
+	groonga -n testdb/scalar_column < scalar_column.grn
+	groonga -n testdb/vector_column < vector_column.grn
 
 grn_obj_cast_SOURCES = grn_obj_cast.c
 grn_obj_clear_option_values_SOURCES = grn_obj_clear_option_values.c
