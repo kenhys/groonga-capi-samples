@@ -41,6 +41,7 @@ init:
 	groonga -n testdb/lexicon < lexicon.grn
 	groonga -n testdb/scalar_column < scalar_column.grn
 	groonga -n testdb/vector_column < vector_column.grn
+	groonga -n testdb/weight_vector < weight_vector.grn
 
 grn_obj_cast_SOURCES = grn_obj_cast.c
 grn_obj_clear_option_values_SOURCES = grn_obj_clear_option_values.c

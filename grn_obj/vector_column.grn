@@ -19,4 +19,5 @@ load --table Site
 
 table_create --name Terms --flags TABLE_PAT_KEY --key_type ShortText --default_tokenizer TokenBigram --normalizer NormalizerAuto
 column_create --table Terms --name blog_title --flags COLUMN_INDEX|WITH_POSITION --type Site --source title
+column_create --table Terms --name blog_title_weight --flags COLUMN_INDEX|WITH_POSITION|WITH_WEIGHT --type Site --source title
 
