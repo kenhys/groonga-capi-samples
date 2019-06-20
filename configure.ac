@@ -5,6 +5,8 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([grn_table_add/table_no_key.c])
 AM_CONFIG_HEADER([config.h])
 
+AC_CHECK_HEADERS(pthread.h)
+
 AM_INIT_AUTOMAKE(foreign)
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
@@ -29,6 +31,13 @@ if test "x$sample_debug" != "xno"; then
     CFLAGS="$CFLAGS -O0 -g3"
   fi
 fi
+
+AC_ARG_WITH([groonga-source-path],
+            AS_HELP_STRING([--with-groonga-source-path=PATH],
+                           [Specify Groonga source path for
+                            using internal header files.]),
+                           [GRN_SOURCE_PATH="$withval"])
+AC_SUBST(GRN_SOURCE_PATH)
 
 GROONGA_REQUIRED_VERSION=7.0.4
 PKG_CHECK_MODULES([GROONGA], [groonga >= ${GROONGA_REQUIRED_VERSION}])
@@ -57,6 +66,7 @@ AC_CONFIG_FILES([
   grn_obj/Makefile
   grn_db/Makefile
   grn_table/Makefile
+  grn_options/Makefile
 ])
 
 AC_OUTPUT

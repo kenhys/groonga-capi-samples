@@ -5,5 +5,6 @@ SUBDIRS = \
 	grn_str \
 	grn_macro \
 	grn_obj	\
-	grn_db
+	grn_db \
+	grn_options
 
